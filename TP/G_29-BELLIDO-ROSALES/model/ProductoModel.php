@@ -18,30 +18,26 @@ class ProductoModel extends Model
   }
 
   function borrarProducto($id) {
-    $invitado = SecuredController::getUser();
-    if($invitado!==false){
+
       $sentencia = $this->db->prepare("DELETE FROM producto WHERE id=?");
       $sentencia->execute([$id]);
-    }
-    else {
-      header('Location: '.PRODUCTO);
-    }
+
   }
   function editarProducto($id_categoria, $precio, $color, $talle, $stock) {
     $sentencia = $this->db->prepare("UPDATE SET producto id_categoria=?, precio=?, color=?, stock=? WHERE id=?");
     $sentencia->execute([$id_categoria, $precio, $color, $talle, $stock]);
   }
 
-  function finalizarProducto($id) {
-    $invitado = SecuredController::getUser();
-    if($invitado!==false){
-      $sentencia = $this->db->prepare("UPDATE producto SET stock=1 WHERE id=?");
-      $sentencia->execute([$id]);
-    }
-    else {
-      header('Location: '.PRODUCTO);
-    }
-  }
+  // function finalizarProducto($id) {
+  //   $invitado = SecuredController::getUser();
+  //   if($invitado!==false){
+  //     $sentencia = $this->db->prepare("UPDATE producto SET stock=1 WHERE id=?");
+  //     $sentencia->execute([$id]);
+  //   }
+  //   else {
+  //     header('Location: '.PRODUCTO);
+  //   }
+  // }
   function verProducto($id){
     $sentencia=$this->db->prepare("SELECT p.id, c.nombre, p.precio, p.color, p.talle, p.stock FROM producto AS p INNER JOIN categoria c ON p.id_categoria = c.id ");
     $sentencia->execute([$id]);
