@@ -14,17 +14,22 @@ class ProductoController extends SecuredController
 
   public function producto()
   {
-    $user = $this->getUser();
-
-    $productos = $this->model->getProductos();
+    $isAdmin = $this->isAdmin();
+    $productos = $this->model->verProducto();
     $this->view->mostrarProductos($productos, $user);
+  }
+
+  public function home()
+  {
+    $isAdmin = $this->isAdmin();
+    $categorias = $this->model->verProducto();
+    $this->view->mostrarProductoHome($productos, $isAdmin);
   }
 
   public function create()
   {
-      $categoriaModel = new CategoriaModel();
-      $categoria = $categoriaModel->getCategoria();
-      $this->view->mostrarCrearProducto($categoria);
+      $this->isAdmin() or $this->login();
+      $this->view->mostrarCrearProducto();
   }
 
   public function store()
@@ -54,7 +59,7 @@ class ProductoController extends SecuredController
   {
     $id= $params[0];
     $this->model->finalizarProducto($id);
-    header('Location: '.PRODUCTO);
+    header('Location: '.HOME);
   }
   public function mostrarEditar($params){
     $this->isAdmin() or $this->login();

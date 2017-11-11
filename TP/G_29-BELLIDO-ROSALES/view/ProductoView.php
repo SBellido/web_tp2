@@ -1,33 +1,29 @@
 <?php
 class ProductoView extends View
 {
+  function mostrarProductoHome($productos, $isAdmin){
+    $this->smarty->assign('isAdmin', $isAdmin);
+    $this->smarty->assign('productos', $productos);
+    $this->smarty->display('templates/Producto/index.tpl');
+  }
+  function mostrarProductos($productos, $isAdmin){
 
-  function mostrarProductos($productos, $user){
-    if(isset($_SESSION['USER'])){
-      $this->smarty->assign('isAdmin', true);
-    }
-    else {
-      $this->smarty->assign('isAdmin', false);
-    }
+      $this->smarty->assign('isAdmin', $isAdmin);
       $this->smarty->assign('productos', $productos);
-
-      $this->smarty->assign('invitado', $user);
       $this->smarty->display('templates/Producto/producto.tpl');
-      }
-public function mostrarEditarProducto($producto){
-  $this->smarty->assign('productos', $producto);
-  $this->smarty->display('templates/Producto/productoEditar.tpl');
-
-}
+  }
 
   function mostrarCrearProducto($categoria){
    $this->assignarProductoForm();
-    // $this->smarty->assign('invitado', $user);
-    $this->smarty->assign('categorias', $categoria);
     $this->smarty->display('templates/formCrearProducto.tpl');
   }
 
-  function errorCrear($error, $id_categoria, $precio, $color, $talle, $stock){
+public function mostrarEditarProducto($producto){
+  $this->smarty->assign('productos', $producto);
+  $this->smarty->display('templates/Producto/productoEditar.tpl');
+}
+
+function errorCrear($error, $id_categoria, $precio, $color, $talle, $stock){
     $this->assignarProductoForm($id_categoria, $precio, $color, $talle, $stock);
     $this->smarty->assign('error', $error);
     $this->smarty->display('templates/formCrearProducto.tpl');
