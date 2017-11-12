@@ -1,23 +1,23 @@
 $(document).ready(function(){
 
-$("body").on("submit", "#formGuardar", function(e){
-
-e.preventDefault();
-  let form_data = new FormData(this);
-  console.log(form_data);
-  $.ajax({
-    url: "guardarCategoria",
-    contentType: false,
-    processData: false,
-    data: form_data,
-    type: 'post',
-    success: function(data)
-    {
-       $('.js-carga').html(data);
-    }
-  });
-  return false;
-  });
+// $("body").on("submit", "#formGuardar", function(e){
+//
+// e.preventDefault();
+//   let form_data = new FormData(this);
+//   console.log(form_data);
+//   $.ajax({
+//     url: "guardarCategoria",
+//     contentType: false,
+//     processData: false,
+//     data: form_data,
+//     type: 'post',
+//     success: function(data)
+//     {
+//        $('.js-carga').html(data);
+//     }
+//   });
+//   return false;
+//   });
 
   $("body").on("submit",'.js-submit',function(e) {
   e.preventDefault();

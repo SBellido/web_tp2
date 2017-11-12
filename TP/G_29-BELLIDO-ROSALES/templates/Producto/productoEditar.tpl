@@ -8,11 +8,11 @@
       <div class="form-group">
         <input type="hidden" name="id_categoria" value="{$productos['id_categoria']}">
         <label for="nombre">Nombre</label>
-        <input type="text" class="form-control" id="nombre" name="nombre"  value="{$productos['nombre']}">
+        <p type="text" class="form-control" id="nombre" name="nombre"  value="{$productos['nombre']}"></p>
       </div>
       <div class="form-group">
         <label for="precio">precio</label>
-        <input type="text" class="form-control" id="precio" name="precio"  value="{$productos['precio']}">
+        <input type="number" class="form-control" id="precio" name="precio"  value="{$productos['precio']}">
       </div>
       <div class="form-group">
         <label for="color">color</label>
@@ -24,7 +24,7 @@
       </div>
       <div class="form-group">
         <label for="stock">Sin stock</label>
-        <input type="checkbox" id="stock" name="stock" value="1">
+        <input type="checkbox" id="stock" name="stock" value="?">
       </div>
       <button type="submit" class="btn btn-default">Editar</button>
     </form>

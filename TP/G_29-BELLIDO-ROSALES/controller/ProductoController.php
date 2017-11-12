@@ -61,15 +61,17 @@ class ProductoController extends SecuredController
     $id=$params[0];
     $productos=$this->model->verProducto($id);
     $this->view->mostrarEditarProducto($productos);
+    // print_r($productos);
+    // die();
   }
   public function guardarEdit(){
     $this->isAdmin() or $this->login();
-    // $id = $_POST['id'];
+    $id_categoria = $_POST['id_categoria'];
     $nombre = $_POST['nombre'];
     $precio = $_POST['precio'];
     $color = $_POST['color'];
     $talle = $_POST['talle'];
-    $this->model->editarProducto($nombre, $precio, $color, $talle);
+    $this->model->editarProducto($id_categoria, $nombre, $precio, $color, $talle);
 
     header('Location: '.PRODUCTO); // REDIRECCIONES AL VIEW
   }
