@@ -31,7 +31,10 @@ class ConfigApp
       'finalizarProducto' => 'ProductoController#finish',
       'listaProductos' => 'ProductoController#producto',
       'producto' => 'ProductoController#producto',
-      'editarProducto'=> 'ProductoController#producto',
+      'editarProducto'=> 'ProductoController#mostrarEditar',
+      'guardarEditarProducto'=>'ProductoController#guardarEdit'
+
+
     ];
 
 }
