@@ -6,11 +6,7 @@
     <h1>Editar Producto</h1>
     <form action="guardarEditarProducto" class="js-submit" method="post">
       <div class="form-group">
-        <!-- <input type="hidden" name="id_categoria" value="{$productos['id_categoria']}">
-        <label for="nombre">Nombre</label> -->
-        <!-- <input type="text" class="form-control" id="nombre" name="nombre"  value="{$productos['nombre']}"> -->
-      </div>
-      <div class="form-group">
+        <input type="hidden" name="id" value="{$productos['id']}">
         <label for="precio">precio</label>
         <input type="number" class="form-control" id="precio" name="precio"  value="{$productos['precio']}">
       </div>

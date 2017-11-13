@@ -15,6 +15,8 @@ class ProductoModel extends Model
   function guardarProducto($id_categoria, $precio, $color, $talle, $stock){
     $sentencia = $this->db->prepare("INSERT INTO producto(id_categoria, precio, color, talle, stock) VALUES(?,?,?,?,?)");
     $sentencia->execute([$id_categoria, $precio, $color, $talle, $stock]);
+    $id = $this->db->lastinsertId();
+    return $this->getProducto($id);
   }
 
   function borrarProducto($id) {
@@ -23,7 +25,8 @@ class ProductoModel extends Model
  }
   function editarProducto($id, $precio, $color, $talle) {
     $sentencia = $this->db->prepare("UPDATE producto SET precio=?, color=?, talle=? WHERE id=?");
-    $sentencia->execute([$id, $precio, $color, $talle]);
+    $sentencia->execute([$precio, $color, $talle,$id]);
+
   }
 
   function finalizarProducto($id) {

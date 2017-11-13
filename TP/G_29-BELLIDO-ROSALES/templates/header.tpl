@@ -23,7 +23,7 @@
       {if $usuario}
       <li class="nav-item">usuario: {$usuario}</li>
       {else}
-      <li class="nav-item">usuario: invitado</li>
+      <li class="nav-item">usuario: qqq</li>
       {/if}
     </ul>
 
