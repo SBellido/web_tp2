@@ -1,5 +1,5 @@
 <?php
-require_once("../api/model/CategoriasApiModel.php");
+require_once("../model/CategoriaModel.php");
 require_once("../api/controller/Api.php");
 
 /**

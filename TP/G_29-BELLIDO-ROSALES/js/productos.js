@@ -42,6 +42,13 @@ function guardarSubmit(form, action){
   let serializeData = form.serialize();
 
   $.post(action, serializeData, function (response){
+    if ((action.indexOf("verificarUsuario") > 0)) {
+               actualizaNav();
+               }
      $('.js-carga').html(response);
+
   });
 }
+
+function actualizaNav()
+   {        location.reload();    }

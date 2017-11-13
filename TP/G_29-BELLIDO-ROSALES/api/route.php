@@ -22,7 +22,7 @@ if(isset($_GET['resource'])){
     $url_params = $urlData[ConfigApi::$PARAMS];
     $controller_method = explode('#',ConfigApi::$RESOURCES[$resource]); //Array[0] -> TareasController [1] -> index
     $controller =  new $controller_method[0]();
-    $metodo = $controller->$metodon[1];
+    $metodo = $controller_method[1];
     if(isset($url_params) &&  $url_params != null){
       echo $controller->$metodo($url_params);
     }

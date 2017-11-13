@@ -10,7 +10,7 @@
   <header>
     <ul class="nav nav-tabs">
       <li class="nav-item">
-        <a class="nav-link active partial" href="logout">Logout</a>
+        <a class="nav-link active partial" type="submit" action="verificarUsuario" href="logout">Logout</a>
       </li>
       <li class="nav-item">
         <a class="nav-link partial" href="listaProductos">Lista de Productos</a>
@@ -20,10 +20,10 @@
       </li>
     </ul>
     <ul class="nav nav-tabs">
-      {if $usuario}
-      <li class="nav-item">usuario: {$usuario}</li>
+      {if $isAdmin}
+      <li class="nav-item">usuario: Admin</li>
       {else}
-      <li class="nav-item">usuario: qqq</li>
+      <li class="nav-item">usuario: invitado-</li>
       {/if}
     </ul>
 
