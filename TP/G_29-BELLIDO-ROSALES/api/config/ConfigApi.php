@@ -6,6 +6,8 @@ class ConfigApi
     public static $PARAMS = 'params';
     public static $RESOURCES = [
       'categorias#GET'=> 'CategoriasApiController#getCategorias'
+      'categorias#DELETE'=> 'CategoriasApiController#deleteCategorias'
+
     ];
 }
  ?>
