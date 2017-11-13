@@ -19,8 +19,8 @@
         <input type="text" class="form-control" id="talle" name="talle"  value="{$productos['talle']}">
       </div>
       <div class="form-group">
-        <label for="stock">Sin stock</label>
-        <input type="checkbox" id="stock" name="stock" value="?">
+        <label for="stock">Stock</label>
+        <input type="checkbox" id="stock" name="stock" value="0">
       </div>
       <button type="submit" class="btn btn-default">Editar</button>
     </form>

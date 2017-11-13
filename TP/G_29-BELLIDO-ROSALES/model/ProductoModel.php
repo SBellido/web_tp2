@@ -30,14 +30,9 @@ class ProductoModel extends Model
   }
 
   function finalizarProducto($id) {
-    $invitado = SecuredController::getUser();
-    if($invitado!==false){
       $sentencia = $this->db->prepare("UPDATE producto SET stock=1 WHERE id=?");
       $sentencia->execute([$id]);
-    }
-    else {
       header('Location: '.PRODUCTO);
-    }
   }
   function verProducto($id){
     // $sentencia = $this->db->prepare("SELECT p.id, c.nombre, p.precio, p.color, p.talle FROM producto AS p INNER JOIN categoria c ON p.id_categoria = c.id WHERE id=?");

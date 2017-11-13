@@ -6,6 +6,7 @@ define('PARAMS', 1);
 require_once 'config/ConfigApi.php';
 require_once '../model/Model.php';
 require_once 'controller/CategoriasApiController.php';
+require_once 'controller/ProductosApiController.php';
 
 function parseURL($url)
 {
