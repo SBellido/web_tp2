@@ -21,15 +21,15 @@ class CategoriaModel extends Model
   }
 
   function borrarCategoria($id){
-      $sentencia = $this->db->prepare("DELETE FROM categoria WHERE id=?");
-      $sentencia->execute([$id]);
-    }
+    $sentencia = $this->db->prepare("DELETE FROM categoria WHERE id=?");
+    $sentencia->execute([$id]);
+  }
 
 
   function editarCategoria($id, $nombre, $descripcion){
-      $sentencia = $this->db->prepare("UPDATE categoria SET nombre=?,descripcion=? WHERE id=?");
-      $sentencia->execute([$nombre, $descripcion, $id]);
-    }
+    $sentencia = $this->db->prepare("UPDATE categoria SET nombre=?,descripcion=? WHERE id=?");
+    $sentencia->execute([$nombre, $descripcion, $id]);
+  }
 
 
   function getCategoriaById($id){
@@ -38,7 +38,12 @@ class CategoriaModel extends Model
       $result = $sentencia->fetchAll(PDO::FETCH_ASSOC);
       return $result[0];
     }
+  function modificarCategoria(){
+    $sentencia = $this->db->prepare("UPDATE categoria SET nombre=?, descripcion=? WHERE id_categoria=?");
+    $sentencia->execute([$nombre, $descripcion, $id_categoria]);
+    return $this->getCategoria($id_tarea);
   }
+}
 
 
 

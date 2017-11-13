@@ -7,7 +7,8 @@ class ConfigApi
     public static $RESOURCES = [
       'categorias#GET'=> 'CategoriasApiController#getCategorias',
       'categorias#DELETE'=> 'CategoriasApiController#deleteCategorias',
-      'categorias#POST'=> 'CategoriasApiController#createCategorias'
+      'categorias#POST'=> 'CategoriasApiController#createCategorias',
+      'categorias#PUT'=> 'CategoriasApiController#editCategorias'
 
     ];
 }
