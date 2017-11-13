@@ -1,6 +1,6 @@
 <?php
-include_once('model/CategoriaModel.php');
-include_once('view/CategoriaView.php');
+require_once('model/CategoriaModel.php');
+require_once('view/CategoriaView.php');
 
 class CategoriaController extends SecuredController
 {
@@ -15,13 +15,13 @@ class CategoriaController extends SecuredController
   public function index()
   {
     $isAdmin = $this->isAdmin();
-    $categorias = $this->model->getCategoria();
+    $categorias = $this->model->getCategorias();
     $this->view->mostrarCategoria($categorias, $isAdmin);
   }
   public function home()
   {
     $isAdmin = $this->isAdmin();
-    $categorias = $this->model->getCategoria();
+    $categorias = $this->model->getCategorias();
     $this->view->mostrarCategoriaHome($categorias, $isAdmin);
   }
   public function create()

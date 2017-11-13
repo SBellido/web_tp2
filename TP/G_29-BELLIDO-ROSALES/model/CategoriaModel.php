@@ -1,10 +1,16 @@
 <?php
 class CategoriaModel extends Model
 {
-  function getCategoria(){
+  function getCategorias(){
     $sentencia = $this->db->prepare("SELECT * FROM categoria"); //conecta con la tabla de MySQL
     $sentencia->execute();
     return $sentencia->fetchAll(PDO::FETCH_ASSOC);
+  }
+
+  function getCategoria($id_categoria){
+    $sentencia = $this->db->prepare("SELECT * FROM categoria WHERE id_categoria = ?"); //conecta con la tabla de MySQL
+    $sentencia->execute([$id_categoria]);
+    return $sentencia->fetch(PDO::FETCH_ASSOC);
   }
 
   function guardarCategoria($nombre, $descripcion){

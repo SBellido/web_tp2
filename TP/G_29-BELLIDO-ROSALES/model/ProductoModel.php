@@ -43,7 +43,7 @@ class ProductoModel extends Model
 
     $sentencia->execute([$id]);
     return $sentencia->fetchAll(PDO::FETCH_ASSOC);
-    return $result[0];
+    // return $result[0];
 
 
 
