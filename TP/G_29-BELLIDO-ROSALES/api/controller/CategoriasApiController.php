@@ -13,52 +13,48 @@ class CategoriasApiController extends Api
     $this->model = new CategoriaModel(); // construye el objeto CategoriaModel
   }
 
-  public function getCategorias($params = [])
+  public function getCategorias($url_params = [])
   {
-//     function get($params=''){
-// if(empty($params)){
+//     function get($url_params=''){
+// if(empty($url_params)){
 // $categorias = $this->model->getCategorias();
 // return $this->json_response($categorias,200);
 // }
 // else{
-// $categoria = $this->model->getCategoria($params[0]);
+// $categoria = $this->model->getCategoria($url_params[0]);
 // if(!empty($categoria)){
 // return $this->json_response($categoria,200);
 // }else {
 //   return $this->json_response(false,404);
 // }
 // }
-    switch (sizeof($params))
+    switch (sizeof($url_params))
     {
       case 0:
         $categorias = $this->model->getCategorias();
         return $this->json_response($categorias, 200);
         break;
       case 1:
-        $id_categoria = $params = [0];
-        $categoria = $this->model->getCategoria($id_categoria)
+        $id_categoria = $url_params = [0];
+        $categoria = $this->model->getCategoria($id_categoria);
         if($categoria)
-        {
           return $this->json_response($categoria, 200);
-        }
         else
-        {
           return $this->json_response(false, 404);
-        }
       default:
         return $this->json_response(false, 404);
         break;
       }
   }
-  public function deleteCategorias($params = [])
+  public function deleteCategorias($url_params = [])
   {
-    switch (sizeof($params)) {
+    switch (sizeof($url_params)) {
       case 0:
         return $this->json_response(false, 400);
         break;
       case 1:
-        $id_categoria = $params = [0];
-        $categoria = $this->model->getCategoria($id_categoria)
+        $id_categoria = $url_params = [0];
+        $categoria = $this->model->getCategoria($id_categoria);
         if($categoria)
         {
           $this->model->borrarCategoria($id_categoria);
@@ -72,8 +68,21 @@ class CategoriasApiController extends Api
         return $this->json_response(false, 404);
         break;
       }
+    }
+    public function createCategorias($url_params = []) {
+      if(sizeof($url_params) == 0){
+        $body = json_decode($this->raw_data);
+        $nombre = $body->nombre;
+        $descripcion = $body->descripcion;
+        $categoria = $this->model->guardarCategoria($nombre, $descripcion);
+        return $this->json_response($categoria, 200);
+      }
+      else {
+        return json_response(false, 404);
 
+      }
+    }
 }
-}
+
 
  ?>

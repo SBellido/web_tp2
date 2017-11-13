@@ -16,6 +16,8 @@ class CategoriaModel extends Model
   function guardarCategoria($nombre, $descripcion){
     $sentencia = $this->db->prepare('INSERT INTO categoria(nombre, descripcion) VALUES(?,?)');
     $sentencia->execute([$nombre, $descripcion]);
+    $id = $this->db->lastinsertId();
+    return $this->getCategoria($id);
   }
 
   function borrarCategoria($id){
