@@ -3,6 +3,8 @@
     {if isset($error) }
     <div class="alert alert-danger partial" role="alert">{$error}</div>
     {/if}
+    <form action="guardarTarea" method="post" id="formGuardar" enctype="multipart/form-data">
+    <input type="file" name="imageToUpload" id="imageToUpload">
     <h1>Editar Producto</h1>
     <form action="guardarEditarProducto" class="js-submit" method="post">
       <div class="form-group">
