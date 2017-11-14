@@ -37,9 +37,19 @@
             <a class="partial" href="editarProducto/{$producto['id']}"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span></a>
 
             {/if}
+            <div>
+              <form action="guardarComentario" method="post" class="js-submit">
+                <label>Comentario</label><br>
+                <textarea type="text" name="comentario" method="post"></textarea><br>
+                <label>Nombre</label><br>
+                <input type="text" name="nombre" method="post"></input><br>
+                <button type="submit">Comentar</button>
+              </form>
+            </div>
+
           </li>
-            <a class="partial" href="agregarComentario">Comentar</a>
-            
+
+
           {/foreach}
         </ul>
       </div>
