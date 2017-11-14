@@ -53,11 +53,11 @@ class CategoriasApiController extends Api
         return $this->json_response(false, 400);
         break;
       case 1:
-        $id_categoria = $url_params = [0];
-        $categoria = $this->model->getCategoria($id_categoria);
+        $id = $url_params[0];
+        $categoria = $this->model->getCategorias();
         if($categoria)
         {
-          $this->model->borrarCategoria($id_categoria);
+          $this->model->borrarCategoria($id);
           return $this->json_response("Borrado exitoso.", 200);
         }
         else
