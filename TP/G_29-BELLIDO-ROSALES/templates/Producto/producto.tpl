@@ -4,14 +4,19 @@
   {if $isAdmin}
     <a class="partial" href="agregarProducto">Agregar Producto</a> |
     {/if}
-    <a>
-      <label for="id_categoria"></label>
-      <select name='id_categoria'>
-        {foreach from=$PorCategoria item=id_categoria}
-        <option value= '{$categoria['id']}'>{$categoria['nombre']}</option>
-        {/foreach}
-      </select>
-    </a>
+
+    <label for="id_categoria"></label>
+      <form action="agregarProducto" method="post" class="js-submit">
+        <div class="form-group">
+          <label for="id_categoria"></label>
+          <select name='id_categoria'>
+            {foreach from=$categorias item=categoria}
+            <option value= '{$categoria['id']}'>{$categoria['nombre']}</option>
+            {/foreach}
+          </select>
+        </div>
+      </form>
+
       <ul class="list-group">
         {foreach from=$productos item=producto}
         <li class="list-group-item">
@@ -34,11 +39,7 @@
             {/if}
           </li>
             <a class="partial" href="agregarComentario">Comentar</a>
-            <!-- <div class="comentarios">
-              <input type="text" name="nombre" value="Tu Nombre" id="nombre">
-              <textarea class="comentario" name="comentario" id="comentario" rows="4" cols="40"></textarea>
-              <button type="submit" name="submit"> Comentar</button>
-            </div> -->
+            
           {/foreach}
         </ul>
       </div>

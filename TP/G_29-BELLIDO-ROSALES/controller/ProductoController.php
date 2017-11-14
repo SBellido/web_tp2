@@ -23,9 +23,9 @@ class ProductoController extends SecuredController
 
   public function create()
   {
-      $categoriaModel = new CategoriaModel();
-      $categoria = $categoriaModel->getCategorias();
-      $this->view->mostrarCrearProducto($categoria);
+    $categoriaModel = new CategoriaModel();
+    $categoria = $categoriaModel->getCategorias();
+    $this->view->mostrarCrearProducto($categoria);
   }
 
   public function store()

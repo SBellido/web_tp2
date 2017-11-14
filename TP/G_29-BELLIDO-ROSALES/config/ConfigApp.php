@@ -7,9 +7,7 @@ class ConfigApp
     public static $ACTIONS = [
       ''=> 'CategoriaController#home',
       'home'=> 'CategoriaController#index',
-      // 'home'=> 'EnterVisiter#enter',
-      // 'enter'=> 'VisiterController#enter',
-
+      
       'login' => 'LoginController#index',
       'verificarUsuario' => 'LoginController#verify',
       'logout' => 'LoginController#destroy',

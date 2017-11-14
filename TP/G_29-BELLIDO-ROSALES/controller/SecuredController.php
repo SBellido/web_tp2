@@ -22,25 +22,32 @@ class SecuredController extends Controller
     if(isset($_SESSION['USER'])){
       return $_SESSION['USER'];
     }
-    else{
-    // $this->login();
 
-    }
   }
- function isAdmin(){
-   if(isset($_SESSION['USER'])){
-     return true;
-   }
-   else {
-     return false;
-   }
+  function isAdmin(){
+      if(isset($_SESSION['USER'])){
+      return true;
+    }
+     else {
+       return false;
+     }
    }
 
-   function login(){
+   public function verificaPermiso()
+    {
+        if(isset($_SESSION['USER']) && $_SESSION['permissions']==1)
+        {
+            return 1;
+        }
+        else
+            return 0;
+    }
+
+  function login(){
      header('Location: '.LOGIN);
      die();
-   }
- }
+  }
+}
 
 
 

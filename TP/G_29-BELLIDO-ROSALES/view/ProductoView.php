@@ -27,6 +27,12 @@ public function mostrarEditarProducto($productos){
     $this->smarty->display('templates/formCrearProducto.tpl');
   }
 
+  // function mostrarCrearProducto($categoria){
+  //  $this->assignarProductoForm();
+  //   // $this->smarty->assign('invitado', $user);
+  //   $this->smarty->assign('categorias', $categoria);
+  //   $this->smarty->display('templates/formCrearProducto.tpl');
+  // }
   function errorCrear($error, $id_categoria, $precio, $color, $talle, $stock){
     $this->assignarProductoForm($id_categoria, $precio, $color, $talle, $stock);
     $this->smarty->assign('error', $error);
