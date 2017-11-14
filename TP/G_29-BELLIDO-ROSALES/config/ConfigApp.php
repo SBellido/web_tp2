@@ -32,7 +32,9 @@ class ConfigApp
       'listaProductos' => 'ProductoController#producto',
       'producto' => 'ProductoController#producto',
       'editarProducto'=> 'ProductoController#mostrarEditar',
-      'guardarEditarProducto'=>'ProductoController#guardarEdit'
+      'guardarEditarProducto'=>'ProductoController#guardarEdit',
+
+      'agregarComentario'=>'comentarioController#comentar'
 
 
     ];

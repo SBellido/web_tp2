@@ -27,4 +27,10 @@ footer {
 h1{
   color: #314b60;
 }
+.list-group-item{
+  width: 500px;
+}
+.comentarios{
+
+}
 </style>

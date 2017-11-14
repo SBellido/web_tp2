@@ -11,6 +11,7 @@ include_once 'controller/SecuredController.php';
 include_once 'controller/CategoriaController.php';
 include_once 'controller/ProductoController.php';
 include_once 'controller/LoginController.php';
+include_once 'controller/comentarioController.php';
 
 
 function parseURL($url)

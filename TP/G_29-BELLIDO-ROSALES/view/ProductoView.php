@@ -42,6 +42,19 @@ public function mostrarEditarProducto($productos){
 
   }
 
+  private function assignarComentarioForm($id_comentario='', $nombre='', $comentario=''){
+    $this->smarty->assign('id_comentario', $id_comentario);
+    $this->smarty->assign('nombre', $nombre);
+    $this->smarty->assign('comentario', $comentario);
+
+  }
+  function mostrarComentar($id){
+   $this->assignarProductoForm();
+    // $this->smarty->assign('invitado', $user);
+    $this->smarty->assign('id', $id);
+    $this->smarty->display('templates/comentar.tpl');
+  }
+
 }
 
  ?>

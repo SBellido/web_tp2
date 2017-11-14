@@ -42,9 +42,13 @@ class ProductoModel extends Model
     $sentencia->execute([$id]);
     return $sentencia->fetchAll(PDO::FETCH_ASSOC);
     // return $result[0];
+    }
 
-
-
-  }
+//     function VerPorCategoria($id_categoria){
+//       $sentencia = $this->db->prepare("SELECT * FROM categoria WHERE id_categoria = ?");
+//       $PorCategoria = $sentencia->execute([$id_categoria]);
+//       return $sentencia->fetch(PDO::FETCH_ASSOC);
+//     }
 }
+
 ?>

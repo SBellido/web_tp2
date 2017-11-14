@@ -41,7 +41,7 @@ class CategoriaModel extends Model
   function modificarCategoria(){
     $sentencia = $this->db->prepare("UPDATE categoria SET nombre=?, descripcion=? WHERE id_categoria=?");
     $sentencia->execute([$nombre, $descripcion, $id_categoria]);
-    return $this->getCategoria($id_tarea);
+    return $this->getCategoria();
   }
 }
 
