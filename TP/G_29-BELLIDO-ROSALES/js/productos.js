@@ -17,12 +17,9 @@ e.preventDefault();
     }
   });
   return false;
-  });
+});
 
-
-
-
-  $("body").on("submit",'.js-submit',function(e) {
+$("body").on("submit",'.js-submit',function(e) {
   e.preventDefault();
 
   guardarSubmit($(this),this.action);
@@ -33,37 +30,45 @@ e.preventDefault();
     carga(this.href);
     });
 });
+
 function carga(url)
 {
-$.post(url, "", function(data)
-{
+  $.post(url, "", function(data)
+  {
    $('.js-carga').html(data);
    ActualizarEventos();
-})
+  })
 }
-function ActualizarEventos(){
-  $('.filtro').change(function(e){
+
+function ActualizarEventos()
+{
+  $('.filtro').change(function(e)
+  {
     e.preventDefault();
-
     cambioSelector(this.value);
-
   });
 }
-function cambioSelector(valor){
-    alert(valor);
+
+function cambioSelector(valor)
+{
+  alert(valor);
   carga(valor);
 }
-function guardarSubmit(form, action){
+
+function guardarSubmit(form, action)
+{
   let serializeData = form.serialize();
-
-  $.post(action, serializeData, function (response){
-    if ((action.indexOf("verificarUsuario") > 0)) {
-               actualizaNav();
-               }
+  $.post(action, serializeData, function (response)
+  {
+    if ((action.indexOf("verificarUsuario") > 0))
+    {
+      actualizaNav();
+    }
      $('.js-carga').html(response);
-
   });
 }
 
-function actualizaNav()
-   {        location.reload();    }
+// function actualizaNav()
+//    {
+//      location.reload();
+//    }

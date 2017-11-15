@@ -36,7 +36,8 @@ class ProductoController extends SecuredController
     $talle = $_POST['talle'];
     $stock = isset($_POST['stock']) ? $_POST['stock'] : 0;
 
-    if(isset($_POST['id_categoria']) && !empty($_POST['id_categoria'])){
+    if(isset($_POST['id_categoria']) && !empty($_POST['id_categoria']))
+    {
       $this->model->guardarProducto($id_categoria, $precio, $color, $talle, $stock);
       header('Location: '.PRODUCTO);
     }
@@ -44,6 +45,7 @@ class ProductoController extends SecuredController
       $this->view->errorCrear("El campo id_categoria es requerido", $id_categoria, $precio, $color, $talle);
     }
   }
+
   public function destroy($params)
   {
     $id = $params[0];
@@ -57,32 +59,35 @@ class ProductoController extends SecuredController
     $this->model->finalizarProducto($id);
     header('Location: '.PRODUCTO);
   }
+
   public function mostrarEditar($params){
     $id=$params[0];
     $productos=$this->model->verProducto($id);
     $this->view->mostrarEditarProducto($productos[0]);
   }
-  public function guardarEdit(){
-    // $this->isAdmin() or $this->login();
-   // $id = $_POST['id'];
-    // $nombre = $_POST['nombre'];
+
+  public function guardarEdit()
+  {
+//  $this->isAdmin() or $this->login();
+//  $id = $_POST['id'];
+//  $nombre = $_POST['nombre'];
     $id = $_POST['id'];
     $precio = $_POST['precio'];
     $color = $_POST['color'];
     $talle = $_POST['talle'];
     $this->model->editarProducto($id, $precio, $color, $talle);
     header('Location: '.PRODUCTO);
-    // header('Location: '.PRODUCTO); // REDIRECCIONES AL VIEW
+ // header('Location: '.PRODUCTO); // REDIRECCIONES AL VIEW
   }
-  public function getProductoID($params){
+  
+  public function getProductoID($params)
+  {
     $id=$params[0];
     $user = $this->getUser();
     $producto=$this->model->producto();
     $listado=$this->model->verProducto($id);
-    $this->view->mostrarProductos($listado, $user,$producto);
-
+    $this->view->mostrarProductos($listado, $user, $producto);
   }
-
 }
 
 ?>
