@@ -5,5 +5,17 @@ class LoginView extends View
     $this->smarty->assign('invitado', $user);
     $this->smarty->display('templates/Login/index.tpl');
   }
+
+  function mostrarRegistrar(){
+    // $this->smarty->assign('invitado', $user);
+    $this->assignarRegistrarForm();
+    $this->smarty->display('templates/Login/registro.tpl');
+  }
+
+  private function assignarRegistrarForm($email='', $password=''){
+    $this->smarty->assign('email', $email);
+    $this->smarty->assign('password', $password);
+  }
 }
+
 ?>

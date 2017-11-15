@@ -8,18 +8,19 @@ class ProductoView extends View
     }
     else {
       $this->smarty->assign('isAdmin', false);
-    }
+         }
       $this->smarty->assign('productos', $productos);
-        $this->smarty->assign('selector', $selector);
+      $this->smarty->assign('selector', $selector);
 
       $this->smarty->assign('invitado', $user);
       $this->smarty->display('templates/Producto/producto.tpl');
       }
-public function mostrarEditarProducto($productos){
-  $this->smarty->assign('productos', $productos);
-  $this->smarty->display('templates/Producto/productoEditar.tpl');
 
-}
+  public function mostrarEditarProducto($productos){
+    $this->smarty->assign('productos', $productos);
+    $this->smarty->display('templates/Producto/productoEditar.tpl');
+
+      }
 
   function mostrarCrearProducto($categoria){
    $this->assignarProductoForm();

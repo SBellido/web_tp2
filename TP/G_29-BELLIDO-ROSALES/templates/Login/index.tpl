@@ -13,10 +13,11 @@
       {if !empty($error) }
       <div class="alert alert-danger" role="alert">{$error}</div>
       {/if}
-      <button type="submit" class="btn btn-default">-Admin-</button>
+      <button type="submit" class="btn btn-default">Ingresar</button>
     </form>
+      <br>
+      <a class="nav-link active partial" href="mostrarLogin">No estoy registrado</a>
     {if !empty($error) }
     <div role="EnterVisiter"></div>{$error}</div>
     {/if}
   </div>
-  

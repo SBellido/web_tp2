@@ -11,6 +11,8 @@ class ConfigApp
       'login' => 'LoginController#index',
       'verificarUsuario' => 'LoginController#verify',
       'logout' => 'LoginController#destroy',
+      'registrarUsuario'=>'LoginController#registrar',
+      'mostrarLogin'=>'LoginController#mostrarLogin',
 
 
       'categorias' => 'CategoriaController#index',
@@ -34,7 +36,6 @@ class ConfigApp
       'actualizarTabla'=>'ProductoController#getProductoID',
 
       'agregarComentario'=>'comentarioController#comentar'
-
 
     ];
 

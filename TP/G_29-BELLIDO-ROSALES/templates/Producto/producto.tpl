@@ -12,8 +12,8 @@
         <div class="form-group">
           <label for="id_categoria"></label>
           <select class="filtro" name='id_categoria'>
-            {foreach from=$selector item=selector}
-            <option value= 'actualizarTabla{$selector['id']}'>{$selector['nombre']}</option>
+            {foreach from=$selector item=sel }
+            <option value= 'actualizarTabla{$sel['id']}'>{$sel['nombre']}</option>
             {/foreach}
           </select>
         </div>
@@ -28,7 +28,7 @@
             <a class="partial navbar-right" href="borrarProducto/{$producto['id']}"><span aria-hidden="true"></span></a>
             <a class="partial navbar-right" href="finalizarProducto/{$producto['id']}"><span  aria-hidden="true"></span></a>
             <a class="partial navbar-right" href="editarProducto/{$producto['id']}"><span aria-hidden="true"></span></a>
-{/if}
+
             {else}
             <s><b>{$producto['nombre']}</b> ${$producto['precio']} - Colores: {$producto['color']} - Talles: {$producto['talle']}</s>
             {/if}
@@ -46,7 +46,7 @@
                 <button type="submit">Comentar</button>
 
             {if !$producto['stock']}
-
+{/if}
               </form>
             </div>
 

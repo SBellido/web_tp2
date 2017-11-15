@@ -13,6 +13,21 @@ class LoginController extends SecuredController
     $this->model = new LoginModel();
   }
 
+  public function registrar()
+  {
+     $email = $_POST['email'];
+     $password = $_POST['password'];
+     $registro=$this->model->createUser($email, $password);
+     if($registro){
+       verificaSetea($email, $password);
+
+
+     }
+     header('Location: '.CATEGORIA);
+    // $this->view->mostrarRegistrar($email, $password);
+
+  }
+
   public function index()
   {
     $user = $this->getUser();
@@ -44,7 +59,7 @@ class LoginController extends SecuredController
                 }
             }
         }
-  
+
 
   public function destroy()
   {
@@ -53,6 +68,10 @@ class LoginController extends SecuredController
     header('Location: '.LOGIN);
   }
 
+public function mostrarLogin(){
+    $this->view->mostrarRegistrar();
+
+}
 }
 
 ?>

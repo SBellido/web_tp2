@@ -19,9 +19,9 @@ e.preventDefault();
   return false;
 });
 
-$("body").on("submit",'.js-submit',function(e) {
+  $("body").on("submit",'.js-submit',function(e) {
   e.preventDefault();
-
+  alert(this);
   guardarSubmit($(this),this.action);
   });
 
@@ -57,7 +57,10 @@ function cambioSelector(valor)
 
 function guardarSubmit(form, action)
 {
+  alert(form);
+  alert(action);
   let serializeData = form.serialize();
+  alert(serializeData);
   $.post(action, serializeData, function (response)
   {
     if ((action.indexOf("verificarUsuario") > 0))
