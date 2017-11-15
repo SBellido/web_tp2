@@ -7,7 +7,7 @@ class ConfigApp
     public static $ACTIONS = [
       ''=> 'CategoriaController#home',
       'home'=> 'CategoriaController#index',
-      
+
       'login' => 'LoginController#index',
       'verificarUsuario' => 'LoginController#verify',
       'logout' => 'LoginController#destroy',
@@ -31,6 +31,7 @@ class ConfigApp
       'producto' => 'ProductoController#producto',
       'editarProducto'=> 'ProductoController#mostrarEditar',
       'guardarEditarProducto'=>'ProductoController#guardarEdit',
+      'actualizarTabla'=>'ProductoController#getProductoID',
 
       'agregarComentario'=>'comentarioController#comentar'
 

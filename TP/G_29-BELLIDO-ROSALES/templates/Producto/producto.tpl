@@ -9,11 +9,15 @@
       <form action="agregarProducto" method="post" class="js-submit">
         <div class="form-group">
           <label for="id_categoria"></label>
-          <select name='id_categoria'>
-            {foreach from=$categorias item=categoria}
-            <option value= '{$categoria['id']}'>{$categoria['nombre']}</option>
+          <select class="filtro" name='id_categoria'>
+            {foreach from=$selector item=selector}
+            <option value= 'actualizarTabla{$selector['id']}'>{$selector['nombre']}</option>
             {/foreach}
           </select>
+            <form action="guardarImagen" method="post" id="formGuardar" enctype="multipart/form-data">
+            <input type="file" name="imageToUpload" id="imageToUpload"><form action="guardarImagen" method="post" id="formGuardar" enctype="multipart/form-data">
+
+
         </div>
       </form>
 

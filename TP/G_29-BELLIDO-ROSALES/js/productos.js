@@ -19,6 +19,9 @@ e.preventDefault();
   return false;
   });
 
+
+
+
   $("body").on("submit",'.js-submit',function(e) {
   e.preventDefault();
 
@@ -35,8 +38,20 @@ function carga(url)
 $.post(url, "", function(data)
 {
    $('.js-carga').html(data);
-  // ActualizarEventos();
+   ActualizarEventos();
 })
+}
+function ActualizarEventos(){
+  $('.filtro').change(function(e){
+    e.preventDefault();
+
+    cambioSelector(this.value);
+
+  });
+}
+function cambioSelector(valor){
+    alert(valor);
+  carga(valor);
 }
 function guardarSubmit(form, action){
   let serializeData = form.serialize();

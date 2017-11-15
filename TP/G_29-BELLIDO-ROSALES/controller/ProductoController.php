@@ -15,9 +15,9 @@ class ProductoController extends SecuredController
   public function producto()
   {
     $user = $this->getUser();
-
-    $productos = $this->model->getProductos();
-    $this->view->mostrarProductos($productos, $user);
+    $producto=$this->model->getProductos();
+    $listado = $this->model->getProductos();
+    $this->view->mostrarProductos($listado, $user,$producto);
   }
 
 
@@ -73,6 +73,14 @@ class ProductoController extends SecuredController
     $this->model->editarProducto($id, $precio, $color, $talle);
     header('Location: '.PRODUCTO);
     // header('Location: '.PRODUCTO); // REDIRECCIONES AL VIEW
+  }
+  public function getProductoID($params){
+    $id=$params[0];
+    $user = $this->getUser();
+    $producto=$this->model->producto();
+    $listado=$this->model->verProducto($id);
+    $this->view->mostrarProductos($listado, $user,$producto);
+
   }
 
 }

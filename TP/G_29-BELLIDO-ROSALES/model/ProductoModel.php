@@ -36,7 +36,8 @@ class ProductoModel extends Model
   }
   function verProducto($id){
     // $sentencia = $this->db->prepare("SELECT p.id, c.nombre, p.precio, p.color, p.talle FROM producto AS p INNER JOIN categoria c ON p.id_categoria = c.id WHERE id=?");
-    $sentencia = $this->db->prepare("SELECT `id`, `id_categoria`, `precio`, `color`, `talle`, `stock` FROM `producto` WHERE id=?");
+    //$sentencia = $this->db->prepare("SELECT `id`, `id_categoria`, `precio`, `color`, `talle`, `stock`, nombre FROM `producto` WHERE id=?");
+    $sentencia=$this->db->prepare("SELECT p.id, p.precio, p.color, p.talle, p.stock, p.imagen, c.nombre, c.descripcion from producto p inner join categoria c where c.id=p.id_categoria and p.id=?");
     // $sentencia = $this->db->prepare("SELECT * FROM producto WHERE id = ?");
 
     $sentencia->execute([$id]);
