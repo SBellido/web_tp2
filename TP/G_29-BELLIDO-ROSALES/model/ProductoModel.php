@@ -12,6 +12,12 @@ class ProductoModel extends Model
     return $sentencia->fetchAll(PDO::FETCH_ASSOC);
   }
 
+  function getProductosFiltrados($id_categoria){
+    $sentencia = $this->db->prepare("SELECT p.id, c.nombre, p.precio, p.color, p.talle, p.stock FROM producto AS p INNER JOIN categoria c ON p.id_categoria = c.id WHERE p.id_categoria = ?"); //conecta con la tabla de MySQL
+    $sentencia->execute($id_categoria);
+    return $sentencia->fetchAll(PDO::FETCH_ASSOC);
+  }
+
   function guardarProducto($id_categoria, $precio, $color, $talle, $stock){
     $sentencia = $this->db->prepare("INSERT INTO producto(id_categoria, precio, color, talle, stock) VALUES(?,?,?,?,?)");
     $sentencia->execute([$id_categoria, $precio, $color, $talle, $stock]);

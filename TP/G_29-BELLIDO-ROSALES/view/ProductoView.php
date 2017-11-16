@@ -56,12 +56,6 @@ class ProductoView extends View
     $this->smarty->assign('comentario', $comentario);
 
   }
-  function mostrarComentar($id){
-   $this->assignarProductoForm();
-    // $this->smarty->assign('invitado', $user);
-    $this->smarty->assign('id', $id);
-    $this->smarty->display('templates/comentar.tpl');
-  }
 
 }
 

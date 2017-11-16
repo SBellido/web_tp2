@@ -33,7 +33,7 @@ class ConfigApp
       'producto' => 'ProductoController#producto',
       'editarProducto'=> 'ProductoController#mostrarEditar',
       'guardarEditarProducto'=>'ProductoController#guardarEdit',
-      'actualizarTabla'=>'ProductoController#getProductoID',
+      'actualizarTabla'=>'ProductoController#productoFiltrados',
 
       'agregarComentario'=>'comentarioController#comentar'
 
